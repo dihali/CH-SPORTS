@@ -287,10 +287,14 @@ img{display:block;max-width:100%}
   aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;
   position:relative;overflow:hidden;
 }
-/* SUBSTITUIR: coloque aqui a foto da camisa amarela */
-.card-img-amarela{background:linear-gradient(145deg,#0d0900 0%,#2d2100 45%,#6a5000 100%)}
-/* SUBSTITUIR: coloque aqui a foto da camisa azul */
-.card-img-azul{background:linear-gradient(145deg,#000210 0%,#001030 45%,#002060 100%)}
+.card-img-amarela{background:#ffffff}
+.card-img-azul{background:#ffffff}
+.card-jersey-img{
+  width:100%;height:100%;
+  object-fit:cover;
+  object-position:center top;
+  display:block;
+}
 .card-img::before{
   content:'';position:absolute;inset:0;
   background:radial-gradient(ellipse 55% 65% at 50% 35%,rgba(255,255,255,.07) 0%,transparent 70%);
@@ -299,9 +303,10 @@ img{display:block;max-width:100%}
 /* SUBSTITUIR: <img src="camisa-amarela.jpg"> dentro de .card-img-amarela */
 /* SUBSTITUIR: <img src="camisa-azul.jpg"> dentro de .card-img-azul */
 .card-badge{
-  position:absolute;top:16px;left:16px;z-index:2;
+  position:absolute;bottom:0;left:0;right:0;z-index:2;
   font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
-  background:var(--accent);color:#000;padding:5px 12px;
+  background:var(--accent);color:#000;
+  padding:7px 12px;text-align:center;
 }
 .card-body{padding:24px 24px 28px}
 .card-body h3{
@@ -453,6 +458,7 @@ footer{
 .foot-icon:hover{border-color:var(--accent)}
 .foot-icon svg{width:17px;height:17px;fill:var(--muted)}
 .foot-copy{font-size:11px;color:#3a3a3a;letter-spacing:1px}
+.foot-dev{font-size:10px;color:#2a2a2a;letter-spacing:2px;text-transform:uppercase;margin-top:8px}
 
 /* ─── REVEAL ─── */
 .reveal{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
@@ -474,11 +480,100 @@ footer{
 .countdown-row .cd-unit:nth-child(7){--cd-d:.65s}
 .countdown-section.in .cd-unit{animation:cdPop .5s cubic-bezier(.34,1.56,.64,1) var(--cd-d,.15s) backwards}
 
+/* ─── HERO CTA ─── */
+.btn-hero-cta{
+  display:inline-block;background:#E8C44A;color:#0A0A0A;
+  font-family:'Arial Black',Impact,sans-serif;
+  font-size:13px;font-weight:900;letter-spacing:2px;text-transform:uppercase;
+  padding:18px 40px;margin-top:20px;
+  transition:opacity .2s;text-decoration:none;
+}
+.btn-hero-cta:hover{opacity:.85}
+
+/* ─── PREÇO PIX ─── */
+.price-old{font-size:14px;color:#555;text-decoration:line-through;margin-bottom:4px}
+.price-pix{font-family:'Arial Black',Impact,sans-serif;font-size:28px;font-weight:900;color:#E8C44A;line-height:1;margin-bottom:4px}
+.price-installment-new{font-size:12px;color:#888;margin-bottom:10px}
+.pix-badge{
+  display:inline-block;background:rgba(232,196,74,.08);
+  border:1px solid rgba(232,196,74,.27);color:#E8C44A;
+  font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;
+  padding:4px 10px;margin-bottom:16px;
+}
+
+/* ─── GUIA DE TAMANHOS ─── */
+.size-guide-link{
+  font-size:11px;color:#aaa;text-decoration:underline;cursor:pointer;
+  background:none;border:none;padding:0;margin:8px 0 16px;display:block;
+  font-family:Arial,sans-serif;
+}
+.modal-overlay{
+  display:none;position:fixed;inset:0;
+  background:rgba(0,0,0,.8);z-index:10000;
+  align-items:center;justify-content:center;
+}
+.modal-overlay.open{display:flex}
+.modal-box{
+  background:#111;border:1px solid #1E1E1E;padding:32px;
+  max-width:420px;width:90%;position:relative;
+}
+.modal-title{
+  font-family:'Arial Black',Impact,sans-serif;
+  font-size:14px;font-weight:900;text-transform:uppercase;letter-spacing:2px;
+  color:#E8C44A;margin-bottom:20px;
+}
+.modal-close{
+  position:absolute;top:12px;right:16px;
+  background:none;border:none;color:#888;font-size:22px;cursor:pointer;line-height:1;
+}
+.size-table{width:100%;border-collapse:collapse;font-size:13px}
+.size-table th{text-align:left;color:#888;font-weight:700;letter-spacing:1px;
+  text-transform:uppercase;font-size:10px;padding:8px 12px;border-bottom:1px solid #1E1E1E}
+.size-table td{padding:10px 12px;color:#fff}
+.size-table tr:nth-child(even) td{background:#0A0A0A}
+.size-table tr:nth-child(odd) td{background:#111}
+.size-table td:first-child{color:#E8C44A;font-weight:700}
+
+/* ─── DEPOIMENTOS WHATSAPP ─── */
+.depo-wpp{
+  background:#111;border:1px solid #1E1E1E;border-left:4px solid #25D366;
+  padding:20px 18px;position:relative;
+}
+.depo-wpp-head{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:10px}
+.depo-wpp-name{font-size:13px;font-weight:700;color:#fff}
+.depo-wpp-local{font-size:11px;color:#888;margin-top:2px}
+.depo-wpp-check{color:#25D366;font-size:14px;font-weight:700}
+.depo-wpp-stars{color:#E8C44A;font-size:12px;letter-spacing:1px;margin-bottom:8px}
+.depo-wpp-text{font-size:13px;color:#aaa;line-height:1.6;font-style:italic;margin-bottom:10px}
+.depo-wpp-date{text-align:right;font-size:10px;color:#444}
+.depo-note{font-size:11px;color:#555;text-align:center;font-style:italic;margin-top:20px}
+
+/* ─── GARANTIA ─── */
+.card-guarantee{font-size:10px;color:#888;text-align:center;letter-spacing:.5px;margin-bottom:12px}
+.security-banner{
+  background:#0A0A0A;border-top:1px solid #1E1E1E;padding:16px;margin-top:24px;
+  font-size:12px;color:#555;text-align:center;letter-spacing:1px;text-transform:uppercase;
+}
+
+/* ─── TEXTURA MALHA DE CAMISA ─── */
+.countdown-section,.produtos-section,.dif-section,.depo-section,.faq-section,footer{
+  background-image:
+    repeating-linear-gradient(45deg,transparent 0,transparent 3px,rgba(255,255,255,.016) 3px,rgba(255,255,255,.016) 4px),
+    repeating-linear-gradient(-45deg,transparent 0,transparent 3px,rgba(255,255,255,.016) 3px,rgba(255,255,255,.016) 4px);
+}
+.cta-section{
+  background-image:
+    repeating-linear-gradient(45deg,transparent 0,transparent 3px,rgba(255,255,255,.016) 3px,rgba(255,255,255,.016) 4px),
+    repeating-linear-gradient(-45deg,transparent 0,transparent 3px,rgba(255,255,255,.016) 3px,rgba(255,255,255,.016) 4px),
+    linear-gradient(160deg,var(--bg-azul) 0%,var(--bg-verde) 100%);
+}
+
 /* ─── RESPONSIVE ─── */
 @media(max-width:768px){
   #header{padding:14px 20px}
   .hero-title{font-size:52px!important;letter-spacing:-1px}
   .hero-tagline{letter-spacing:4px}
+  .btn-hero-cta{width:100%;text-align:center;padding:16px;display:block}
   .cards-grid{grid-template-columns:1fr;max-width:400px}
   .dif-grid{grid-template-columns:repeat(2,1fr)}
   .depo-grid{grid-template-columns:1fr}
@@ -521,6 +616,8 @@ footer{
       ESTOQUE DISPONÍVEL
     </div>
   </div>
+  <a href="https://wa.me/5534998787707?text=Ol%C3%A1!%20Vi%20o%20site%20e%20quero%20garantir%20minha%20camisa!" class="btn-hero-cta" target="_blank" rel="noopener">🛒 GARANTIR MINHA CAMISA</a>
+
   <!-- seta de scroll — substitui o botão pra não pular o efeito GSAP -->
   <div class="scroll-hint">
     <span class="scroll-hint-label">ROLE PARA VER</span>
@@ -613,8 +710,7 @@ footer{
       <!-- CAMISA AMARELA -->
       <div class="card reveal d1">
         <div class="card-img card-img-amarela">
-          <!-- SUBSTITUIR: <img src="camisa-amarela.jpg" alt="Camisa Amarela Brasil 2026"> -->
-          <span class="jersey-icon">👕</span>
+          <img src="amarela.webp" alt="Camisa Amarela Brasil 2026" class="card-jersey-img">
           <span class="card-badge">AMARELA · SELEÇÃO</span>
         </div>
         <div class="card-body">
@@ -622,9 +718,12 @@ footer{
           <div class="card-sizes">
             <span class="sz">P</span><span class="sz">M</span><span class="sz">G</span><span class="sz">GG</span>
           </div>
-          <div class="card-price">R$ 160,00</div>
-          <p class="card-installment">ou 2x de R$ 80,00 sem juros</p>
-          <!-- SUBSTITUIR: número do WhatsApp -->
+          <button class="size-guide-link" onclick="document.getElementById('modal-tamanhos').classList.add('open')">📏 Ver guia de tamanhos</button>
+          <p class="price-old">R$ 160,00</p>
+          <div class="price-pix">R$ 150,00 no Pix</div>
+          <p class="price-installment-new">ou R$ 160,00 em 2x de R$ 80,00 no cartão</p>
+          <span class="pix-badge">💸 10% OFF no Pix</span>
+          <p class="card-guarantee">🛡️ Troca garantida · Entrega em 24h · Atendimento real</p>
           <a href="https://wa.me/5534998787707?text=Ol%C3%A1!%20Quero%20a%20Camisa%20Amarela%20Brasil%202026!" class="btn-wpp" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.533 5.862L.057 23.886a.5.5 0 0 0 .61.61l6.02-1.476A11.95 11.95 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22a9.953 9.953 0 0 1-5.127-1.414l-.368-.217-3.814.936.955-3.708-.239-.382A9.954 9.954 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
             COMPRAR NO WHATSAPP
@@ -635,8 +734,7 @@ footer{
       <!-- CAMISA AZUL -->
       <div class="card reveal d2">
         <div class="card-img card-img-azul">
-          <!-- SUBSTITUIR: <img src="camisa-azul.jpg" alt="Camisa Azul Brasil 2026"> -->
-          <span class="jersey-icon">👕</span>
+          <img src="azul.webp" alt="Camisa Azul Brasil 2026" class="card-jersey-img">
           <span class="card-badge" style="background:var(--brazil-blue);color:#fff">AZUL · SELEÇÃO</span>
         </div>
         <div class="card-body">
@@ -644,9 +742,12 @@ footer{
           <div class="card-sizes">
             <span class="sz">P</span><span class="sz">M</span><span class="sz">G</span><span class="sz">GG</span>
           </div>
-          <div class="card-price">R$ 160,00</div>
-          <p class="card-installment">ou 2x de R$ 80,00 sem juros</p>
-          <!-- SUBSTITUIR: número do WhatsApp -->
+          <button class="size-guide-link" onclick="document.getElementById('modal-tamanhos').classList.add('open')">📏 Ver guia de tamanhos</button>
+          <p class="price-old">R$ 160,00</p>
+          <div class="price-pix">R$ 150,00 no Pix</div>
+          <p class="price-installment-new">ou R$ 160,00 em 2x de R$ 80,00 no cartão</p>
+          <span class="pix-badge">💸 10% OFF no Pix</span>
+          <p class="card-guarantee">🛡️ Troca garantida · Entrega em 24h · Atendimento real</p>
           <a href="https://wa.me/5534998787707?text=Ol%C3%A1!%20Quero%20a%20Camisa%20Azul%20Brasil%202026!" class="btn-wpp" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.533 5.862L.057 23.886a.5.5 0 0 0 .61.61l6.02-1.476A11.95 11.95 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22a9.953 9.953 0 0 1-5.127-1.414l-.368-.217-3.814.936.955-3.708-.239-.382A9.954 9.954 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
             COMPRAR NO WHATSAPP
@@ -655,6 +756,7 @@ footer{
       </div>
 
     </div>
+    <div class="security-banner">🔒 Compra 100% segura via WhatsApp · Respondemos em menos de 1 hora</div>
   </div>
 </section>
 
@@ -708,22 +810,44 @@ footer{
       <h2 class="sec-title">QUEM JÁ VESTIU A CH SPORTS</h2>
     </div>
     <div class="depo-grid">
-      <div class="depo-card reveal d1">
-        <div class="depo-stars">★★★★★</div>
-        <p class="depo-text">"Camisa chegou no dia seguinte, qualidade incrível. Já comprei a amarela e vou pegar a azul também!"</p>
-        <span class="depo-name">João M. — Ituiutaba, MG</span>
+      <div class="depo-wpp reveal d1">
+        <div class="depo-wpp-head">
+          <div>
+            <div class="depo-wpp-name">João M.</div>
+            <div class="depo-wpp-local">Ituiutaba, MG</div>
+          </div>
+          <span class="depo-wpp-check">✓✓</span>
+        </div>
+        <div class="depo-wpp-stars">★★★★★</div>
+        <p class="depo-wpp-text">"Camisa chegou no dia seguinte, qualidade incrível. Já comprei a amarela e vou pegar a azul também!"</p>
+        <div class="depo-wpp-date">mai. 2026</div>
       </div>
-      <div class="depo-card reveal d2">
-        <div class="depo-stars">★★★★★</div>
-        <p class="depo-text">"Atendimento nota 10. Me ajudaram a escolher o tamanho certo pelo WhatsApp. Super recomendo!"</p>
-        <span class="depo-name">Ana C. — Ituiutaba, MG</span>
+      <div class="depo-wpp reveal d2">
+        <div class="depo-wpp-head">
+          <div>
+            <div class="depo-wpp-name">Ana C.</div>
+            <div class="depo-wpp-local">Ituiutaba, MG</div>
+          </div>
+          <span class="depo-wpp-check">✓✓</span>
+        </div>
+        <div class="depo-wpp-stars">★★★★★</div>
+        <p class="depo-wpp-text">"Atendimento nota 10. Me ajudaram a escolher o tamanho certo pelo WhatsApp. Super recomendo!"</p>
+        <div class="depo-wpp-date">abr. 2026</div>
       </div>
-      <div class="depo-card reveal d3">
-        <div class="depo-stars">★★★★★</div>
-        <p class="depo-text">"Melhor loja de Ituiutaba! Camisa perfeita pra assistir os jogos do Brasil na Copa. Chegou rapidíssimo."</p>
-        <span class="depo-name">Pedro S. — Ituiutaba, MG</span>
+      <div class="depo-wpp reveal d3">
+        <div class="depo-wpp-head">
+          <div>
+            <div class="depo-wpp-name">Pedro S.</div>
+            <div class="depo-wpp-local">Ituiutaba, MG</div>
+          </div>
+          <span class="depo-wpp-check">✓✓</span>
+        </div>
+        <div class="depo-wpp-stars">★★★★★</div>
+        <p class="depo-wpp-text">"Melhor loja de Ituiutaba! Camisa perfeita pra assistir os jogos do Brasil na Copa. Chegou rapidíssimo."</p>
+        <div class="depo-wpp-date">mai. 2026</div>
       </div>
     </div>
+    <p class="depo-note">💬 Depoimentos reais dos nossos clientes via WhatsApp</p>
     <div class="depo-stat reveal" id="depo-stat">
       +<span id="depo-count">200</span> camisas vendidas
       <span>em Ituiutaba e região</span>
@@ -809,7 +933,25 @@ footer{
     </a>
   </div>
   <p class="foot-copy">© 2026 CH Sports · Todos os direitos reservados</p>
+  <p class="foot-dev">Desenvolvido por DI-HALI DIGITAL</p>
 </footer>
+
+<!-- ── MODAL TAMANHOS ── -->
+<div class="modal-overlay" id="modal-tamanhos" onclick="if(event.target===this)this.classList.remove('open')">
+  <div class="modal-box">
+    <button class="modal-close" onclick="document.getElementById('modal-tamanhos').classList.remove('open')">✕</button>
+    <div class="modal-title">Guia de Tamanhos</div>
+    <table class="size-table">
+      <thead><tr><th>Tamanho</th><th>Altura</th><th>Peso</th></tr></thead>
+      <tbody>
+        <tr><td>P</td><td>até 1,68m</td><td>até 65kg</td></tr>
+        <tr><td>M</td><td>1,68 – 1,75m</td><td>65 – 80kg</td></tr>
+        <tr><td>G</td><td>1,75 – 1,82m</td><td>80 – 95kg</td></tr>
+        <tr><td>GG</td><td>acima 1,82m</td><td>acima 95kg</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
 
 <!-- ── GSAP CDN ── -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
