@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CH Sports — Camisas Seleção Brasileira 2026 | Ituiutaba-MG</title>
+<meta name="description" content="Vista a camisa do Hexa! Camisas da Seleção Brasileira 2026 disponíveis em Ituiutaba-MG. Modelos Amarela e Azul, tamanhos P ao GG. Entrega rápida.">
+<meta property="og:title" content="CH Sports — Camisas da Seleção Brasileira 2026">
+<meta property="og:description" content="Vista a camisa do Hexa! Modelos 2026 disponíveis em Ituiutaba-MG. Entrega rápida, atendimento pelo WhatsApp.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:image" content="https://placehold.co/1200x630/0A0A0A/E8C44A?text=CH+Sports">
+<style>
+/* ─── RESET & VARS ─── */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg-azul:#060D1F;       /* azul naval — seções principais */
+  --bg-verde:#062012;      /* verde escuro — seções alternadas */
+  --bg-azul-card:#0D1A35;  /* card em seção azul */
+  --bg-verde-card:#0A2E1A; /* card em seção verde */
+  --bg-border:#1A2D54;     /* borda azul */
+  --bg-border-g:#154027;   /* borda verde */
+  --accent:#FFD700;        /* ouro */
+  --brazil-yellow:#FFD700;
+  --brazil-blue:#003087;
+  --text:#FFFFFF;
+  --muted:#A8B8C8;
+  --wpp:#25D366;
+  /* aliases para compatibilidade */
+  --bg-primary:var(--bg-azul);
+  --bg-surface:var(--bg-verde);
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg-azul);color:var(--text);font-family:Arial,'Arial Black',sans-serif;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+img{display:block;max-width:100%}
+
+/* ─── HEADER ─── */
+#header{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  padding:16px 40px;
+  display:flex;align-items:center;justify-content:space-between;
+  background:transparent;border-bottom:1px solid transparent;
+  opacity:0;pointer-events:none;
+  transition:background .4s,border-color .4s,opacity .4s;
+}
+#header.solid{background:rgba(6,13,31,.97);border-color:var(--accent);opacity:1;pointer-events:all}
+.header-logo{
+  font-family:'Arial Black',Impact,sans-serif;
+  font-size:20px;font-weight:900;letter-spacing:3px;text-transform:uppercase;
+  color:var(--accent);
+}
+.header-logo-img{
+  height:42px;width:auto;display:block;
+  filter:drop-shadow(0 0 4px rgba(255,215,0,.3));
+}
+.header-wpp-btn{
+  display:flex;align-items:center;gap:8px;
+  background:var(--wpp);color:#fff;
+  font-size:11px;font-weight:900;letter-spacing:2px;text-transform:uppercase;
+  padding:9px 18px;
+  transition:opacity .2s;
+}
+.header-wpp-btn:hover{opacity:.85}
+.header-wpp-btn svg{width:15px;height:15px;fill:currentColor;flex-shrink:0}
+
+/* ─── HERO ─── */
+.hero{
+  position:relative;height:100vh;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  /* SUBSTITUIR: coloque aqui o arquivo da foto do Gustavo Kheir */
+  background-color:var(--bg-azul);
+  background-image:url('hero-bg.jpg.png');
+  background-size:cover;background-position:center top;
+  overflow:hidden;
+}
+/* overlay gradiente pra legibilidade do texto GSAP */
+.hero::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(
+    135deg,
+    rgba(6,13,31,.82) 0%,
+    rgba(6,13,31,.6) 45%,
+    rgba(6,18,8,.45) 100%
+  );
+  pointer-events:none;
+}
+.hero-title{
+  font-family:'Arial Black',Impact,sans-serif;
+  font-size:clamp(52px,11vw,120px);
+  font-weight:900;text-transform:uppercase;letter-spacing:-2px;
+  line-height:.88;text-align:center;
+  background:linear-gradient(135deg,#009C3B 0%,#FFD700 35%,#FFD700 65%,#003087 100%);
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;
+  will-change:transform;
+  position:relative;z-index:2; /* acima do overlay */
+}
+.hero-tagline,.hero-ctas{position:relative;z-index:2}
+.hero-tagline{
+  margin-top:28px;
+  display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;
+  font-family:'Arial Black',Impact,sans-serif;
+  font-size:clamp(11px,2.2vw,18px);
+  font-weight:700;letter-spacing:6px;text-transform:uppercase;
+  color:var(--text);text-align:center;
+  will-change:opacity,transform;
+}
+.tagline-logo{
+  height:clamp(32px,4vw,50px);
+  width:auto;
+  display:block;
+  flex-shrink:0;
+  filter:drop-shadow(0 0 6px rgba(255,215,0,.4));
+}
+.hero-ctas{
+  margin-top:36px;
+  display:flex;flex-direction:column;align-items:center;gap:16px;
+  will-change:opacity,transform;
+}
+.btn-hero{
+  background:var(--accent);color:#000;
+  font-family:'Arial Black',Impact,sans-serif;
+  font-size:13px;font-weight:900;letter-spacing:3px;text-transform:uppercase;
+  padding:16px 44px;
+  transition:opacity .2s;
+}
+.btn-hero:hover{opacity:.82}
+.hero-badge{
+  display:flex;align-items:center;gap:8px;
+  font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;
+  color:var(--wpp);
+}
+.badge-dot{width:8px;height:8px;background:var(--wpp);border-radius:50%;animation:bdot 1s ease-in-out infinite}
+@keyframes bdot{0%,100%{opacity:1}50%{opacity:.15}}
+
+/* ─── SCROLL HINT ─── */
+.scroll-hint{
+  position:absolute;bottom:36px;left:50%;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:6px;
+  z-index:3;pointer-events:none;
+}
+.scroll-hint-label{
+  font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;
+  color:rgba(255,255,255,.45);
+}
+.scroll-arrow-wrap{
+  width:36px;height:36px;border:1.5px solid rgba(255,215,0,.35);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--accent);
+  animation:arrowBounce 1.6s ease-in-out infinite;
+}
+.scroll-arrow-wrap svg{width:18px;height:18px}
+@keyframes arrowBounce{
+  0%,100%{transform:translateY(0);opacity:.6}
+  50%{transform:translateY(5px);opacity:1}
+}
+
+/* ─── TICKER ─── */
+.ticker{background:var(--accent);padding:13px 0;overflow:hidden;white-space:nowrap}
+.ticker-track{display:inline-flex;animation:marquee 25s linear infinite}
+.ticker-item{
+  font-family:'Arial Black',Impact,sans-serif;
+  font-size:12px;font-weight:900;letter-spacing:3px;text-transform:uppercase;
+  color:#000;padding:0 28px;
+}
+@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* ─── FOTO DESTAQUE ─── */
+.foto-destaque{width:100%;display:block;line-height:0}
+.foto-destaque img{width:100%;height:auto;display:block}
+
+/* ─── COUNTDOWN ─── */
+.countdown-section{
+  background:var(--bg-verde);
+  border-top:1px solid var(--bg-border-g);border-bottom:1px solid var(--bg-border-g);
+  padding:100px 40px;text-align:center;
+  position:relative;overflow:hidden;
+}
+/* logo glow (camada borrada atrás) */
+.cd-bg-logo-glow{
+  position:absolute;
+  top:50%;left:50%;
+  transform:translate(-50%,-52%) scale(1.15);
+  width:min(110%,660px);
+  opacity:0;
+  filter:blur(18px) saturate(2) brightness(1.4);
+  pointer-events:none;
+  transition:opacity 2s ease,transform 2s ease;
+  z-index:0;
+  will-change:opacity,transform;
+}
+/* logo nítida (camada da frente) */
+.cd-bg-logo{
+  position:absolute;
+  top:50%;left:50%;
+  transform:translate(-50%,-52%) scale(1.08);
+  width:min(80%,460px);
+  opacity:0;
+  filter:saturate(1.4) brightness(1.15);
+  pointer-events:none;
+  transition:opacity 2.4s ease,transform 2.4s ease;
+  z-index:0;
+  will-change:opacity,transform;
+}
+.countdown-section.in .cd-bg-logo-glow{opacity:.28;transform:translate(-50%,-52%) scale(1)}
+.countdown-section.in .cd-bg-logo{opacity:.2;transform:translate(-50%,-52%) scale(1)}
+@keyframes logoPulse{0%,100%{opacity:.18}50%{opacity:.25}}
+.countdown-section.in .cd-bg-logo{animation:logoPulse 5s ease-in-out 2.6s infinite}
+.countdown-section>.container{position:relative;z-index:1}
+.sec-label{
+  font-size:11px;font-weight:700;letter-spacing:4px;text-transform:uppercase;
+  color:var(--accent);margin-bottom:14px;display:block;
+}
+.sec-title{
+  font-family:'Arial Black',Impact,sans-serif;
+  font-size:clamp(26px,5vw,48px);font-weight:900;
+  text-transform:uppercase;letter-spacing:2px;color:var(--text);
+  margin-bottom:8px;
+}
+.sec-sub{
+  font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;
+  color:var(--muted);margin-bottom:52px;
+}
+.countdown-row{
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  flex-wrap:wrap;margin-bottom:40px;
+}
+.cd-unit{
+  background:#060a06;
+  border:1px solid rgba(255,215,0,.5);
+  box-shadow:0 0 12px rgba(255,215,0,.25), inset 0 0 10px rgba(255,215,0,.04);
+  padding:22px 28px;min-width:96px;text-align:center;
+  position:relative;overflow:hidden;
+}
+/* scanlines LED */
+.cd-unit::before{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background:repeating-linear-gradient(
+    0deg,transparent,transparent 2px,rgba(0,0,0,.18) 2px,rgba(0,0,0,.18) 4px
+  );
+}
+.cd-num{
+  font-family:'Arial Black',Impact,sans-serif;
+  font-size:clamp(34px,6vw,64px);font-weight:900;
+  color:#FFD700;line-height:1;display:block;position:relative;z-index:1;
+  text-shadow:0 0 8px rgba(255,215,0,.9),0 0 20px rgba(255,215,0,.6),0 0 40px rgba(255,215,0,.3);
+}
+.cd-label{
+  font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;
+  color:rgba(255,215,0,.6);margin-top:8px;display:block;position:relative;z-index:1;
+}
+.cd-sep{
+  font-family:'Arial Black',Impact,sans-serif;
+  font-size:38px;font-weight:900;color:#FFD700;
+  line-height:1;margin-bottom:30px;user-select:none;
+  text-shadow:0 0 10px rgba(255,215,0,.7);
+}
+.btn-outline{
+  border:1.5px solid var(--text);color:var(--text);background:transparent;
+  font-family:'Arial Black',Impact,sans-serif;
+  font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;
+  padding:14px 32px;cursor:pointer;display:inline-block;
+  transition:background .2s,color .2s;
+}
+.btn-outline:hover{background:var(--text);color:#000}
+
+/* ─── CONTAINER ─── */
+.container{max-width:1200px;margin:0 auto}
+.section-hd{text-align:center;margin-bottom:56px}
+.section-hd .sec-label{margin-bottom:10px}
+.section-hd .sec-title{margin-bottom:0}
+.section-hd-logo{display:block;height:clamp(80px,10vw,130px);width:auto;margin:20px auto 0;opacity:1;filter:drop-shadow(0 0 12px rgba(255,215,0,.35))}
+
+/* ─── PRODUTOS ─── */
+.produtos-section{background:var(--bg-azul);padding:100px 40px}
+.cards-grid{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:24px;
+  max-width:860px;margin:0 auto;
+}
+.card{
+  background:var(--bg-azul-card);border:1px solid var(--bg-border);overflow:hidden;
+  transition:transform .3s ease,box-shadow .3s ease;will-change:transform;
+}
+.card:hover{transform:translateY(-8px);box-shadow:0 24px 60px rgba(232,196,74,.1)}
+.card-img{
+  aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;
+  position:relative;overflow:hidden;
+}
+/* SUBSTITUIR: coloque aqui a foto da camisa amarela */
+.card-img-amarela{background:linear-gradient(145deg,#0d0900 0%,#2d2100 45%,#6a5000 100%)}
+/* SUBSTITUIR: coloque aqui a foto da camisa azul */
+.card-img-azul{background:linear-gradient(145deg,#000210 0%,#001030 45%,#002060 100%)}
+.card-img::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 55% 65% at 50% 35%,rgba(255,255,255,.07) 0%,transparent 70%);
+}
+.jersey-icon{font-size:88px;opacity:.12;user-select:none;position:relative;z-index:1}
+/* SUBSTITUIR: <img src="camisa-amarela.jpg"> dentro de .card-img-amarela */
+/* SUBSTITUIR: <img src="camisa-azul.jpg"> dentro de .card-img-azul */
+.card-badge{
+  position:absolute;top:16px;left:16px;z-index:2;
+  font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+  background:var(--accent);color:#000;padding:5px 12px;
+}
+.card-body{padding:24px 24px 28px}
+.card-body h3{
+  font-family:'Arial Black',Impact,sans-serif;
+  font-size:17px;font-weight:900;text-transform:uppercase;letter-spacing:1px;
+  color:var(--text);margin-bottom:14px;
+}
+.card-sizes{display:flex;gap:6px;margin-bottom:20px}
+.sz{
+  border:1px solid var(--bg-border);padding:5px 11px;
+  font-size:11px;font-weight:700;color:var(--muted);letter-spacing:1px;
+  transition:border-color .2s,color .2s;cursor:default;
+}
+.sz:hover{border-color:var(--accent);color:var(--accent)}
+.card-price{
+  font-family:'Arial Black',Impact,sans-serif;
+  font-size:32px;font-weight:900;color:var(--text);line-height:1;margin-bottom:4px;
+}
+.card-installment{font-size:12px;color:var(--muted);margin-bottom:20px}
+.btn-wpp{
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  background:var(--wpp);color:#fff;
+  font-family:'Arial Black',Impact,sans-serif;
+  font-size:12px;font-weight:900;letter-spacing:2px;text-transform:uppercase;
+  padding:14px;width:100%;
+  transition:opacity .2s;
+}
+.btn-wpp:hover{opacity:.88}
+.btn-wpp svg{width:17px;height:17px;fill:currentColor;flex-shrink:0}
+
+/* ─── DIFERENCIAIS ─── */
+.dif-section{
+  background:var(--bg-verde);
+  border-top:1px solid var(--bg-border-g);padding:100px 40px;
+}
+.dif-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:20px;
+  max-width:980px;margin:0 auto;
+}
+.dif-card{
+  background:var(--bg-verde-card);border:1px solid var(--bg-border-g);
+  padding:32px 22px;text-align:center;
+  transition:border-color .3s;
+}
+.dif-card:hover{border-color:var(--accent)}
+.dif-icon{font-size:34px;display:block;margin-bottom:14px}
+.dif-titulo{
+  font-family:'Arial Black',Impact,sans-serif;
+  font-size:13px;font-weight:900;text-transform:uppercase;letter-spacing:2px;
+  color:var(--accent);margin-bottom:8px;
+}
+.dif-desc{font-size:13px;color:var(--muted);line-height:1.55}
+
+/* ─── DEPOIMENTOS ─── */
+.depo-section{
+  background:var(--bg-azul);
+  border-top:1px solid var(--bg-border);padding:100px 40px;
+}
+.depo-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:20px;
+  max-width:980px;margin:0 auto 48px;
+}
+.depo-card{background:var(--bg-azul-card);border:1px solid var(--bg-border);padding:28px 22px}
+.depo-stars{color:var(--brazil-yellow);font-size:13px;letter-spacing:2px;margin-bottom:14px}
+.depo-text{font-size:14px;color:var(--muted);line-height:1.6;font-style:italic;margin-bottom:16px}
+.depo-name{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--text)}
+.depo-stat{
+  text-align:center;
+  font-family:'Arial Black',Impact,sans-serif;
+  font-size:clamp(30px,5vw,52px);font-weight:900;color:var(--accent);letter-spacing:-1px;
+}
+.depo-stat span{
+  display:block;font-family:Arial,sans-serif;font-size:12px;font-weight:400;
+  color:var(--muted);letter-spacing:3px;text-transform:uppercase;margin-top:4px;
+}
+
+/* ─── CTA FINAL ─── */
+.cta-section{
+  background:linear-gradient(160deg,var(--bg-azul) 0%,var(--bg-verde) 100%);
+  border-top:1px solid var(--bg-border-g);padding:100px 40px;text-align:center;
+}
+.cta-title{
+  font-family:'Arial Black',Impact,sans-serif;
+  font-size:clamp(36px,7vw,72px);font-weight:900;
+  text-transform:uppercase;letter-spacing:-1px;line-height:.9;margin-bottom:20px;
+}
+.cta-title .em{
+  background:linear-gradient(90deg,var(--brazil-yellow),var(--accent));
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+}
+.cta-sub{font-size:15px;color:var(--muted);line-height:1.6;margin-bottom:40px;max-width:500px;margin-inline:auto}
+.btn-wpp-big{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  background:var(--wpp);color:#fff;
+  font-family:'Arial Black',Impact,sans-serif;
+  font-size:15px;font-weight:900;letter-spacing:2px;text-transform:uppercase;
+  padding:20px 48px;
+  transition:opacity .2s,transform .2s;
+}
+.btn-wpp-big:hover{opacity:.9;transform:translateY(-2px)}
+.btn-wpp-big svg{width:22px;height:22px;fill:currentColor;flex-shrink:0}
+.cta-horario{font-size:11px;color:var(--muted);margin-top:16px;letter-spacing:1px}
+
+/* ─── FAQ ─── */
+.faq-section{
+  background:var(--bg-verde);
+  border-top:1px solid var(--bg-border-g);padding:100px 40px;
+}
+.faq-list{max-width:720px;margin:0 auto;display:flex;flex-direction:column;gap:2px}
+.faq-item{border:1px solid var(--bg-border-g);overflow:hidden;transition:border-color .25s}
+.faq-item.open{border-color:var(--accent)}
+.faq-q{
+  padding:20px 24px;display:flex;align-items:center;justify-content:space-between;
+  cursor:pointer;user-select:none;
+  font-family:'Arial Black',Impact,sans-serif;
+  font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:1px;
+  color:var(--text);transition:color .2s;
+  background:var(--bg-verde-card);
+}
+.faq-item.open .faq-q{color:var(--accent)}
+.faq-plus{font-size:22px;font-weight:300;color:var(--accent);transition:transform .25s;line-height:1;flex-shrink:0}
+.faq-item.open .faq-plus{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .38s ease}
+.faq-a-inner{padding:0 24px 20px;font-size:14px;color:var(--muted);line-height:1.65;background:var(--bg-verde-card)}
+
+/* ─── FOOTER ─── */
+footer{
+  background:var(--bg-azul);
+  border-top:3px solid var(--accent);padding:48px 40px;text-align:center;
+}
+.foot-logo{
+  font-family:'Arial Black',Impact,sans-serif;
+  font-size:26px;font-weight:900;letter-spacing:4px;text-transform:uppercase;
+  color:var(--accent);margin-bottom:8px;
+}
+.foot-logo-img{
+  height:clamp(180px,22vw,280px);width:auto;
+  display:block;margin:0 auto 20px;
+  filter:drop-shadow(0 0 24px rgba(255,215,0,.55));
+}
+.foot-city{font-size:11px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--muted);margin-bottom:24px}
+.foot-icons{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:24px}
+.foot-icon{
+  width:40px;height:40px;border:1px solid var(--bg-border);
+  display:flex;align-items:center;justify-content:center;
+  transition:border-color .2s,background .2s;
+}
+.foot-icon:hover{background:var(--bg-verde)}
+.foot-icon:hover{border-color:var(--accent)}
+.foot-icon svg{width:17px;height:17px;fill:var(--muted)}
+.foot-copy{font-size:11px;color:#3a3a3a;letter-spacing:1px}
+
+/* ─── REVEAL ─── */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+
+/* ─── ENTRANCE ANIMATIONS ─── */
+.anim-left{opacity:0;transform:translateX(-44px);transition:opacity .65s ease,transform .65s ease}
+.anim-left.in{opacity:1;transform:none}
+.anim-zoom{opacity:0;transform:scale(.91);transition:opacity .7s ease,transform .7s cubic-bezier(.34,1.56,.64,1)}
+.anim-zoom.in{opacity:1;transform:scale(1)}
+/* stagger delays — aplica junto com .reveal ou .anim-* */
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
+.d4{transition-delay:.4s}.d5{transition-delay:.5s}.d6{transition-delay:.55s}
+/* pop estilo placar para os blocos do countdown */
+@keyframes cdPop{from{transform:scale(.68) translateY(12px);opacity:0}to{transform:none;opacity:1}}
+.countdown-row .cd-unit:nth-child(1){--cd-d:.2s}
+.countdown-row .cd-unit:nth-child(3){--cd-d:.35s}
+.countdown-row .cd-unit:nth-child(5){--cd-d:.5s}
+.countdown-row .cd-unit:nth-child(7){--cd-d:.65s}
+.countdown-section.in .cd-unit{animation:cdPop .5s cubic-bezier(.34,1.56,.64,1) var(--cd-d,.15s) backwards}
+
+/* ─── RESPONSIVE ─── */
+@media(max-width:768px){
+  #header{padding:14px 20px}
+  .hero-title{font-size:52px!important;letter-spacing:-1px}
+  .hero-tagline{letter-spacing:4px}
+  .cards-grid{grid-template-columns:1fr;max-width:400px}
+  .dif-grid{grid-template-columns:repeat(2,1fr)}
+  .depo-grid{grid-template-columns:1fr}
+  .countdown-section,.produtos-section,.dif-section,
+  .depo-section,.cta-section,.faq-section{padding:60px 20px}
+  .cd-unit{min-width:68px;padding:16px 16px}
+  .btn-wpp-big{padding:16px 28px;font-size:13px}
+}
+@media(max-width:480px){
+  .dif-grid{grid-template-columns:1fr}
+  .countdown-row{gap:4px}
+  .cd-unit{min-width:60px;padding:12px 10px}
+  .cd-sep{font-size:26px}
+  footer{padding:40px 20px}
+}
+</style>
+</head>
+<body>
+
+<!-- ── HEADER ── -->
+<header id="header">
+  <img src="logo-ch-sports.png" class="header-logo-img" alt="CH Sports">
+  <!-- SUBSTITUIR: número do WhatsApp -->
+  <a href="https://wa.me/5534998787707?text=Ol%C3%A1!%20Vi%20o%20site%20e%20quero%20saber%20mais%20sobre%20as%20camisas!" class="header-wpp-btn" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.533 5.862L.057 23.886a.5.5 0 0 0 .61.61l6.02-1.476A11.95 11.95 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22a9.953 9.953 0 0 1-5.127-1.414l-.368-.217-3.814.936.955-3.708-.239-.382A9.954 9.954 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+    WhatsApp
+  </a>
+</header>
+
+<!-- ── HERO ── -->
+<section class="hero" id="hero">
+  <h1 class="hero-title">BRASIL<br>2026</h1>
+  <p class="hero-tagline">
+    VISTA A CAMISA DO HEXA
+    <img src="logo-ch-sports.png" class="tagline-logo" alt="CH Sports">
+  </p>
+  <div class="hero-ctas">
+    <div class="hero-badge">
+      <span class="badge-dot"></span>
+      ESTOQUE DISPONÍVEL
+    </div>
+  </div>
+  <!-- seta de scroll — substitui o botão pra não pular o efeito GSAP -->
+  <div class="scroll-hint">
+    <span class="scroll-hint-label">ROLE PARA VER</span>
+    <div class="scroll-arrow-wrap">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+    </div>
+  </div>
+</section>
+
+<!-- ── TICKER ── -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <!-- duplicado para loop contínuo -->
+    <span class="ticker-item">#CHSPORTS</span>
+    <span class="ticker-item">·</span>
+    <span class="ticker-item">CAMISA DO BRASIL</span>
+    <span class="ticker-item">·</span>
+    <span class="ticker-item">HEXA 2026</span>
+    <span class="ticker-item">·</span>
+    <span class="ticker-item">ITUIUTABA</span>
+    <span class="ticker-item">·</span>
+    <span class="ticker-item">ENTREGA RÁPIDA</span>
+    <span class="ticker-item">·</span>
+    <span class="ticker-item">TAMANHOS P M G GG</span>
+    <span class="ticker-item">·</span>
+    <span class="ticker-item">#CHSPORTS</span>
+    <span class="ticker-item">·</span>
+    <span class="ticker-item">CAMISA DO BRASIL</span>
+    <span class="ticker-item">·</span>
+    <span class="ticker-item">HEXA 2026</span>
+    <span class="ticker-item">·</span>
+    <span class="ticker-item">ITUIUTABA</span>
+    <span class="ticker-item">·</span>
+    <span class="ticker-item">ENTREGA RÁPIDA</span>
+    <span class="ticker-item">·</span>
+    <span class="ticker-item">TAMANHOS P M G GG</span>
+    <span class="ticker-item">·</span>
+  </div>
+</div>
+
+<!-- ── FOTO DESTAQUE ── -->
+<div class="foto-destaque">
+  <img src="foto-dois-desktop.png" alt="CH Sports — Seleção Brasileira 2026">
+</div>
+
+<!-- ── COUNTDOWN ── -->
+<section class="countdown-section reveal">
+  <img src="copa-logo.png.png" class="cd-bg-logo-glow" alt="" aria-hidden="true">
+  <img src="copa-logo.png.png" class="cd-bg-logo" alt="" aria-hidden="true">
+  <div class="container">
+    <span class="sec-label">⚽ Copa do Mundo 2026</span>
+    <h2 class="sec-title">ATÉ A ESTREIA DO BRASIL</h2>
+    <p class="sec-sub">13 DE JUNHO · BRASIL VS MARROCOS · COPA DO MUNDO 2026</p>
+    <div class="countdown-row">
+      <div class="cd-unit">
+        <span class="cd-num" id="cd-dias">00</span>
+        <span class="cd-label">Dias</span>
+      </div>
+      <span class="cd-sep">:</span>
+      <div class="cd-unit">
+        <span class="cd-num" id="cd-horas">00</span>
+        <span class="cd-label">Horas</span>
+      </div>
+      <span class="cd-sep">:</span>
+      <div class="cd-unit">
+        <span class="cd-num" id="cd-min">00</span>
+        <span class="cd-label">Min</span>
+      </div>
+      <span class="cd-sep">:</span>
+      <div class="cd-unit">
+        <span class="cd-num" id="cd-seg">00</span>
+        <span class="cd-label">Seg</span>
+      </div>
+    </div>
+    <p style="font-size:13px;color:var(--muted);margin-bottom:24px">Garanta sua camisa antes que acabe o estoque</p>
+    <a href="https://wa.me/5534998787707?text=Ol%C3%A1!%20Quero%20garantir%20minha%20camisa%20antes%20da%20Copa!" class="btn-outline" target="_blank" rel="noopener">QUERO MINHA CAMISA →</a>
+  </div>
+</section>
+
+<!-- ── PRODUTOS ── -->
+<section class="produtos-section" id="produtos">
+  <div class="container">
+    <div class="section-hd anim-left">
+      <span class="sec-label">Coleção 2026</span>
+      <h2 class="sec-title">NOSSAS CAMISAS</h2>
+      <img src="logo-ch-sports.png" class="section-hd-logo" alt="CH Sports">
+    </div>
+    <div class="cards-grid">
+
+      <!-- CAMISA AMARELA -->
+      <div class="card reveal d1">
+        <div class="card-img card-img-amarela">
+          <!-- SUBSTITUIR: <img src="camisa-amarela.jpg" alt="Camisa Amarela Brasil 2026"> -->
+          <span class="jersey-icon">👕</span>
+          <span class="card-badge">AMARELA · SELEÇÃO</span>
+        </div>
+        <div class="card-body">
+          <h3>Camisa Amarela Brasil 2026</h3>
+          <div class="card-sizes">
+            <span class="sz">P</span><span class="sz">M</span><span class="sz">G</span><span class="sz">GG</span>
+          </div>
+          <div class="card-price">R$ 160,00</div>
+          <p class="card-installment">ou 2x de R$ 80,00 sem juros</p>
+          <!-- SUBSTITUIR: número do WhatsApp -->
+          <a href="https://wa.me/5534998787707?text=Ol%C3%A1!%20Quero%20a%20Camisa%20Amarela%20Brasil%202026!" class="btn-wpp" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.533 5.862L.057 23.886a.5.5 0 0 0 .61.61l6.02-1.476A11.95 11.95 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22a9.953 9.953 0 0 1-5.127-1.414l-.368-.217-3.814.936.955-3.708-.239-.382A9.954 9.954 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+            COMPRAR NO WHATSAPP
+          </a>
+        </div>
+      </div>
+
+      <!-- CAMISA AZUL -->
+      <div class="card reveal d2">
+        <div class="card-img card-img-azul">
+          <!-- SUBSTITUIR: <img src="camisa-azul.jpg" alt="Camisa Azul Brasil 2026"> -->
+          <span class="jersey-icon">👕</span>
+          <span class="card-badge" style="background:var(--brazil-blue);color:#fff">AZUL · SELEÇÃO</span>
+        </div>
+        <div class="card-body">
+          <h3>Camisa Azul Brasil 2026</h3>
+          <div class="card-sizes">
+            <span class="sz">P</span><span class="sz">M</span><span class="sz">G</span><span class="sz">GG</span>
+          </div>
+          <div class="card-price">R$ 160,00</div>
+          <p class="card-installment">ou 2x de R$ 80,00 sem juros</p>
+          <!-- SUBSTITUIR: número do WhatsApp -->
+          <a href="https://wa.me/5534998787707?text=Ol%C3%A1!%20Quero%20a%20Camisa%20Azul%20Brasil%202026!" class="btn-wpp" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.533 5.862L.057 23.886a.5.5 0 0 0 .61.61l6.02-1.476A11.95 11.95 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22a9.953 9.953 0 0 1-5.127-1.414l-.368-.217-3.814.936.955-3.708-.239-.382A9.954 9.954 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+            COMPRAR NO WHATSAPP
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── DIFERENCIAIS ── -->
+<section class="dif-section">
+  <div class="container">
+    <div class="section-hd anim-left">
+      <span class="sec-label">Motivos para escolher a gente</span>
+      <h2 class="sec-title">POR QUE ESCOLHER A CH SPORTS?</h2>
+    </div>
+    <div class="dif-grid">
+      <div class="dif-card reveal d1">
+        <span class="dif-icon">⚡</span>
+        <div class="dif-titulo">ENTREGA RÁPIDA</div>
+        <p class="dif-desc">Para toda Ituiutaba e região. Receba sua camisa em até 24h.</p>
+      </div>
+      <div class="dif-card reveal d2">
+        <span class="dif-icon">✅</span>
+        <div class="dif-titulo">QUALIDADE GARANTIDA</div>
+        <p class="dif-desc">Camisa oficial da Seleção. Tecido respirável e acabamento premium.</p>
+      </div>
+      <div class="dif-card reveal d3">
+        <span class="dif-icon">💬</span>
+        <div class="dif-titulo">ATENDIMENTO HUMANO</div>
+        <p class="dif-desc">Direto no WhatsApp, sem robô. Respondemos em menos de 1 hora.</p>
+      </div>
+      <div class="dif-card reveal d4">
+        <span class="dif-icon">📦</span>
+        <div class="dif-titulo">ESTOQUE DISPONÍVEL</div>
+        <p class="dif-desc">Pronto para envio imediato. Sem esperar chegar do fornecedor.</p>
+      </div>
+      <div class="dif-card reveal d5">
+        <span class="dif-icon">💳</span>
+        <div class="dif-titulo">PARCELAMOS</div>
+        <p class="dif-desc">Em até 2x sem juros no cartão. Também aceitamos Pix e dinheiro.</p>
+      </div>
+      <div class="dif-card reveal d6">
+        <span class="dif-icon">🏆</span>
+        <div class="dif-titulo">EDIÇÃO COPA 2026</div>
+        <p class="dif-desc">Comemore o Hexa com a camisa certa. Modelos Amarela e Azul.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── DEPOIMENTOS ── -->
+<section class="depo-section">
+  <div class="container">
+    <div class="section-hd anim-left">
+      <span class="sec-label">Prova social</span>
+      <h2 class="sec-title">QUEM JÁ VESTIU A CH SPORTS</h2>
+    </div>
+    <div class="depo-grid">
+      <div class="depo-card reveal d1">
+        <div class="depo-stars">★★★★★</div>
+        <p class="depo-text">"Camisa chegou no dia seguinte, qualidade incrível. Já comprei a amarela e vou pegar a azul também!"</p>
+        <span class="depo-name">João M. — Ituiutaba, MG</span>
+      </div>
+      <div class="depo-card reveal d2">
+        <div class="depo-stars">★★★★★</div>
+        <p class="depo-text">"Atendimento nota 10. Me ajudaram a escolher o tamanho certo pelo WhatsApp. Super recomendo!"</p>
+        <span class="depo-name">Ana C. — Ituiutaba, MG</span>
+      </div>
+      <div class="depo-card reveal d3">
+        <div class="depo-stars">★★★★★</div>
+        <p class="depo-text">"Melhor loja de Ituiutaba! Camisa perfeita pra assistir os jogos do Brasil na Copa. Chegou rapidíssimo."</p>
+        <span class="depo-name">Pedro S. — Ituiutaba, MG</span>
+      </div>
+    </div>
+    <div class="depo-stat reveal" id="depo-stat">
+      +<span id="depo-count">200</span> camisas vendidas
+      <span>em Ituiutaba e região</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA FINAL ── -->
+<section class="cta-section">
+  <div class="container">
+    <div class="anim-zoom">
+      <h2 class="cta-title">FALTA POUCO<br>PARA O <span class="em">HEXA</span></h2>
+      <p class="cta-sub">Garanta a sua camisa agora. Atendemos toda Ituiutaba e região com entrega rápida.</p>
+      <!-- SUBSTITUIR: número do WhatsApp -->
+      <a href="https://wa.me/5534998787707?text=Ol%C3%A1!%20Quero%20garantir%20minha%20camisa%20da%20Sele%C3%A7%C3%A3o%20antes%20que%20acabe!" class="btn-wpp-big" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.533 5.862L.057 23.886a.5.5 0 0 0 .61.61l6.02-1.476A11.95 11.95 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22a9.953 9.953 0 0 1-5.127-1.414l-.368-.217-3.814.936.955-3.708-.239-.382A9.954 9.954 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+        💬 FALAR NO WHATSAPP
+      </a>
+      <p class="cta-horario">Respondemos em menos de 1 hora · Seg a Sáb das 8h às 20h</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── FAQ ── -->
+<section class="faq-section">
+  <div class="container">
+    <div class="section-hd anim-left">
+      <span class="sec-label">Tire suas dúvidas</span>
+      <h2 class="sec-title">DÚVIDAS FREQUENTES</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item reveal d1">
+        <div class="faq-q">
+          <span>A loja fica em Ituiutaba?</span>
+          <span class="faq-plus">+</span>
+        </div>
+        <div class="faq-a"><div class="faq-a-inner">Sim! Somos de Ituiutaba-MG e entregamos para toda a região. Atendemos pessoalmente e pelo WhatsApp — do jeito que for melhor pra você.</div></div>
+      </div>
+      <div class="faq-item reveal d2">
+        <div class="faq-q">
+          <span>Vocês parcelam a compra?</span>
+          <span class="faq-plus">+</span>
+        </div>
+        <div class="faq-a"><div class="faq-a-inner">Sim, parcelamos em até 2x sem juros no cartão de crédito. Também aceitamos Pix (com desconto especial) e dinheiro na retirada presencial.</div></div>
+      </div>
+      <div class="faq-item reveal d3">
+        <div class="faq-q">
+          <span>Qual a qualidade das camisas?</span>
+          <span class="faq-plus">+</span>
+        </div>
+        <div class="faq-a"><div class="faq-a-inner">São camisas da Seleção Brasileira edição Copa do Mundo 2026, com alta qualidade de tecido respirável, leve e durável. Bordado impecável e costura firme — você vai usar com orgulho do primeiro ao último jogo.</div></div>
+      </div>
+      <div class="faq-item reveal d4">
+        <div class="faq-q">
+          <span>Qual o prazo de entrega?</span>
+          <span class="faq-plus">+</span>
+        </div>
+        <div class="faq-a"><div class="faq-a-inner">Para Ituiutaba, entregamos em até 24h. Para cidades da região, entre 1 e 3 dias. Envios para outras cidades via Correios ficam entre 3 e 7 dias úteis.</div></div>
+      </div>
+      <div class="faq-item reveal d5">
+        <div class="faq-q">
+          <span>Como faço meu pedido?</span>
+          <span class="faq-plus">+</span>
+        </div>
+        <div class="faq-a"><div class="faq-a-inner">Simples! Clique em qualquer botão "Comprar no WhatsApp", escolha o modelo e o tamanho, e a gente cuida do resto. Respondemos em menos de 1 hora.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <img src="logo-ch-sports.png" class="foot-logo-img" alt="CH Sports">
+  <p class="foot-city">Ituiutaba · Minas Gerais · Brasil</p>
+  <div class="foot-icons">
+    <!-- Instagram -->
+    <a href="#" class="foot-icon" aria-label="Instagram" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98C.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+    </a>
+    <!-- WhatsApp -->
+    <a href="https://wa.me/5534998787707" class="foot-icon" aria-label="WhatsApp" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.533 5.862L.057 23.886a.5.5 0 0 0 .61.61l6.02-1.476A11.95 11.95 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22a9.953 9.953 0 0 1-5.127-1.414l-.368-.217-3.814.936.955-3.708-.239-.382A9.954 9.954 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+    </a>
+  </div>
+  <p class="foot-copy">© 2026 CH Sports · Todos os direitos reservados</p>
+</footer>
+
+<!-- ── GSAP CDN ── -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+<script>
+/* ── GSAP HERO ANIMATION ── */
+gsap.registerPlugin(ScrollTrigger);
+
+const heroTL = gsap.timeline({
+  scrollTrigger: {
+    trigger: '.hero',
+    start: 'top top',
+    end: '+=100%',
+    scrub: 1.5,
+    pin: true,
+    anticipatePin: 1
+  }
+});
+
+heroTL
+  .to('.hero-title', {
+    scale: 0.13,
+    y: -(window.innerHeight * 0.44),
+    ease: 'none',
+    duration: 1
+  }, 0)
+  .to('.hero-tagline', {
+    opacity: 0,
+    y: -30,
+    ease: 'none',
+    duration: 0.35
+  }, 0)
+  .to('.hero-ctas', {
+    opacity: 0,
+    y: -20,
+    ease: 'none',
+    duration: 0.3
+  }, 0);
+
+// Header aparece depois que o hero se foi
+ScrollTrigger.create({
+  trigger: '.ticker',
+  start: 'top 90%',
+  onEnter: () => document.getElementById('header').classList.add('solid'),
+  onLeaveBack: () => document.getElementById('header').classList.remove('solid')
+});
+
+/* ── COUNTDOWN ── */
+(function () {
+  const target = new Date('2026-06-13T21:00:00Z').getTime();
+  function pad(n) { return String(n).padStart(2, '0'); }
+  function tick() {
+    const now = Date.now();
+    const diff = Math.max(0, target - now);
+    const d = Math.floor(diff / 86400000);
+    const h = Math.floor((diff % 86400000) / 3600000);
+    const m = Math.floor((diff % 3600000) / 60000);
+    const s = Math.floor((diff % 60000) / 1000);
+    document.getElementById('cd-dias').textContent = pad(d);
+    document.getElementById('cd-horas').textContent = pad(h);
+    document.getElementById('cd-min').textContent = pad(m);
+    document.getElementById('cd-seg').textContent = pad(s);
+    if (diff > 0) requestAnimationFrame(tick);
+  }
+  tick();
+})();
+
+/* ── FAQ ACCORDION ── */
+document.querySelectorAll('.faq-item').forEach(item => {
+  item.querySelector('.faq-q').addEventListener('click', () => {
+    const isOpen = item.classList.contains('open');
+
+    // fecha todos
+    document.querySelectorAll('.faq-item').forEach(i => {
+      i.classList.remove('open');
+      i.querySelector('.faq-a').style.maxHeight = null;
+    });
+
+    // abre o clicado se estava fechado
+    if (!isOpen) {
+      item.classList.add('open');
+      const ans = item.querySelector('.faq-a');
+      ans.style.maxHeight = ans.scrollHeight + 'px';
+    }
+  });
+});
+
+/* ── SCROLL REVEAL ── */
+const revealObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    e.target.classList.add('in');
+    if (e.target.id === 'depo-stat') countUp(document.getElementById('depo-count'), 200, 1800);
+    revealObs.unobserve(e.target);
+  });
+}, { threshold: 0.12 });
+
+document.querySelectorAll('.reveal, .anim-left, .anim-zoom').forEach(el => revealObs.observe(el));
+
+function countUp(el, target, duration) {
+  if (!el) return;
+  const start = Date.now();
+  (function frame() {
+    const p = Math.min(1, (Date.now() - start) / duration);
+    const ease = 1 - Math.pow(1 - p, 3);
+    el.textContent = Math.floor(ease * target);
+    if (p < 1) requestAnimationFrame(frame);
+    else el.textContent = target;
+  })();
+}
+</script>
+
+</body>
+</html>
