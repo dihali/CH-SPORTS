@@ -96,7 +96,7 @@ img{display:block;max-width:100%}
   will-change:transform;
   position:relative;z-index:2; /* acima do overlay */
 }
-.hero-tagline,.hero-ctas{position:relative;z-index:2}
+.hero-tagline,.hero-ctas,.btn-hero-cta{position:relative;z-index:2;will-change:opacity,transform}
 .hero-tagline{
   margin-top:28px;
   display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;
@@ -291,8 +291,7 @@ img{display:block;max-width:100%}
 .card-img-azul{background:#ffffff}
 .card-jersey-img{
   width:100%;height:100%;
-  object-fit:cover;
-  object-position:center top;
+  object-fit:contain;
   display:block;
 }
 .card-img::before{
@@ -303,7 +302,7 @@ img{display:block;max-width:100%}
 /* SUBSTITUIR: <img src="camisa-amarela.jpg"> dentro de .card-img-amarela */
 /* SUBSTITUIR: <img src="camisa-azul.jpg"> dentro de .card-img-azul */
 .card-badge{
-  position:absolute;bottom:0;left:0;right:0;z-index:2;
+  display:block;width:100%;
   font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
   background:var(--accent);color:#000;
   padding:7px 12px;text-align:center;
@@ -318,9 +317,10 @@ img{display:block;max-width:100%}
 .sz{
   border:1px solid var(--bg-border);padding:5px 11px;
   font-size:11px;font-weight:700;color:var(--muted);letter-spacing:1px;
-  transition:border-color .2s,color .2s;cursor:default;
+  transition:border-color .2s,color .2s,background .2s;cursor:pointer;
 }
 .sz:hover{border-color:var(--accent);color:var(--accent)}
+.sz.selected{border-color:var(--accent);color:var(--accent);background:rgba(255,215,0,.12)}
 .card-price{
   font-family:'Arial Black',Impact,sans-serif;
   font-size:32px;font-weight:900;color:var(--text);line-height:1;margin-bottom:4px;
@@ -482,13 +482,16 @@ footer{
 
 /* ─── HERO CTA ─── */
 .btn-hero-cta{
-  display:inline-block;background:#E8C44A;color:#0A0A0A;
+  display:inline-block;
+  background:linear-gradient(135deg,#009C3B 0%,#FFD700 100%);
+  color:#fff;
   font-family:'Arial Black',Impact,sans-serif;
   font-size:13px;font-weight:900;letter-spacing:2px;text-transform:uppercase;
   padding:18px 40px;margin-top:20px;
-  transition:opacity .2s;text-decoration:none;
+  transition:opacity .2s,transform .2s;text-decoration:none;
+  box-shadow:0 4px 20px rgba(0,156,59,.5);
 }
-.btn-hero-cta:hover{opacity:.85}
+.btn-hero-cta:hover{opacity:.9;transform:translateY(-2px)}
 
 /* ─── PREÇO PIX ─── */
 .price-old{font-size:14px;color:#555;text-decoration:line-through;margin-bottom:4px}
@@ -573,7 +576,7 @@ footer{
   #header{padding:14px 20px}
   .hero-title{font-size:52px!important;letter-spacing:-1px}
   .hero-tagline{letter-spacing:4px}
-  .btn-hero-cta{width:100%;text-align:center;padding:16px;display:block}
+  .btn-hero-cta{padding:15px 28px;font-size:12px}
   .cards-grid{grid-template-columns:1fr;max-width:400px}
   .dif-grid{grid-template-columns:repeat(2,1fr)}
   .depo-grid{grid-template-columns:1fr}
@@ -616,7 +619,7 @@ footer{
       ESTOQUE DISPONÍVEL
     </div>
   </div>
-  <a href="https://wa.me/5534998787707?text=Ol%C3%A1!%20Vi%20o%20site%20e%20quero%20garantir%20minha%20camisa!" class="btn-hero-cta" target="_blank" rel="noopener">🛒 GARANTIR MINHA CAMISA</a>
+  <a href="#produtos" class="btn-hero-cta" id="btn-ver-camisas">🛒 ESCOLHER MINHA CAMISA</a>
 
   <!-- seta de scroll — substitui o botão pra não pular o efeito GSAP -->
   <div class="scroll-hint">
@@ -711,8 +714,8 @@ footer{
       <div class="card reveal d1">
         <div class="card-img card-img-amarela">
           <img src="amarela.webp" alt="Camisa Amarela Brasil 2026" class="card-jersey-img">
-          <span class="card-badge">AMARELA · SELEÇÃO</span>
         </div>
+        <span class="card-badge">AMARELA · SELEÇÃO</span>
         <div class="card-body">
           <h3>Camisa Amarela Brasil 2026</h3>
           <div class="card-sizes">
@@ -724,7 +727,7 @@ footer{
           <p class="price-installment-new">ou R$ 160,00 em 2x de R$ 80,00 no cartão</p>
           <span class="pix-badge">💸 10% OFF no Pix</span>
           <p class="card-guarantee">🛡️ Troca garantida · Entrega em 24h · Atendimento real</p>
-          <a href="https://wa.me/5534998787707?text=Ol%C3%A1!%20Quero%20a%20Camisa%20Amarela%20Brasil%202026!" class="btn-wpp" target="_blank" rel="noopener">
+          <a href="#" class="btn-wpp" data-produto="Camisa Amarela Brasil 2026">
             <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.533 5.862L.057 23.886a.5.5 0 0 0 .61.61l6.02-1.476A11.95 11.95 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22a9.953 9.953 0 0 1-5.127-1.414l-.368-.217-3.814.936.955-3.708-.239-.382A9.954 9.954 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
             COMPRAR NO WHATSAPP
           </a>
@@ -735,8 +738,8 @@ footer{
       <div class="card reveal d2">
         <div class="card-img card-img-azul">
           <img src="azul.webp" alt="Camisa Azul Brasil 2026" class="card-jersey-img">
-          <span class="card-badge" style="background:var(--brazil-blue);color:#fff">AZUL · SELEÇÃO</span>
         </div>
+        <span class="card-badge" style="background:var(--brazil-blue);color:#fff">AZUL · SELEÇÃO</span>
         <div class="card-body">
           <h3>Camisa Azul Brasil 2026</h3>
           <div class="card-sizes">
@@ -748,7 +751,7 @@ footer{
           <p class="price-installment-new">ou R$ 160,00 em 2x de R$ 80,00 no cartão</p>
           <span class="pix-badge">💸 10% OFF no Pix</span>
           <p class="card-guarantee">🛡️ Troca garantida · Entrega em 24h · Atendimento real</p>
-          <a href="https://wa.me/5534998787707?text=Ol%C3%A1!%20Quero%20a%20Camisa%20Azul%20Brasil%202026!" class="btn-wpp" target="_blank" rel="noopener">
+          <a href="#" class="btn-wpp" data-produto="Camisa Azul Brasil 2026">
             <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.533 5.862L.057 23.886a.5.5 0 0 0 .61.61l6.02-1.476A11.95 11.95 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22a9.953 9.953 0 0 1-5.127-1.414l-.368-.217-3.814.936.955-3.708-.239-.382A9.954 9.954 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
             COMPRAR NO WHATSAPP
           </a>
@@ -990,6 +993,12 @@ heroTL
     y: -20,
     ease: 'none',
     duration: 0.3
+  }, 0)
+  .to('.btn-hero-cta', {
+    opacity: 0,
+    y: -20,
+    ease: 'none',
+    duration: 0.3
   }, 0);
 
 // Header aparece depois que o hero se foi
@@ -1037,6 +1046,33 @@ document.querySelectorAll('.faq-item').forEach(item => {
       const ans = item.querySelector('.faq-a');
       ans.style.maxHeight = ans.scrollHeight + 'px';
     }
+  });
+});
+
+/* ── HERO SCROLL PARA PRODUTOS ── */
+document.getElementById('btn-ver-camisas').addEventListener('click', e => {
+  e.preventDefault();
+  document.getElementById('produtos').scrollIntoView({behavior:'smooth'});
+});
+
+/* ── SELEÇÃO DE TAMANHO ── */
+document.querySelectorAll('.sz').forEach(sz => {
+  sz.addEventListener('click', () => {
+    sz.closest('.card-sizes').querySelectorAll('.sz').forEach(s => s.classList.remove('selected'));
+    sz.classList.add('selected');
+  });
+});
+
+/* ── WHATSAPP COM PRODUTO + TAMANHO ── */
+document.querySelectorAll('.btn-wpp[data-produto]').forEach(btn => {
+  btn.addEventListener('click', e => {
+    e.preventDefault();
+    const produto = btn.dataset.produto;
+    const sz = btn.closest('.card').querySelector('.sz.selected');
+    const msg = sz
+      ? `Olá! Quero a ${produto}, tamanho ${sz.textContent}!`
+      : `Olá! Quero a ${produto}! Pode me ajudar a escolher o tamanho?`;
+    window.open(`https://wa.me/5534998787707?text=${encodeURIComponent(msg)}`, '_blank');
   });
 });
 
